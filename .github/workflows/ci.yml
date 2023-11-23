@@ -1,12 +1,34 @@
-name: End-to-end tests 🧪
-on: [push]
+name: Testes end to end cypress
+on: pull_request
 jobs:
-  cypress-run:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
+        
+        chrome:
+            runs-on: ubuntu-22.04
+            name: E2E on Chrome
+            steps:
+              - uses: actions/checkout@v4
+              - uses: cypress-io/github-action@v6
+                with:
+                  browser: chrome
+
+        firefox:
+                    runs-on: windows-2022
+                    name: E2E on Firefox
+                    steps:
+                      - uses: actions/checkout@v4
+                      - uses: cypress-io/github-action@v6
+                        with:
+                          browser: firefox
+        edge:
+                            runs-on: ubuntu-22.04
+                            name: E2E on Edge
+                            steps:
+                              - uses: actions/checkout@v4
+                              - uses: cypress-io/github-action@v6
+                                with:
+                                  browser: edge
+                              
+                              - uses: actions/upload-artifact@v3
+                                with:
+                                    name: Meu relatório goianinho
+                                    path: cypress/reports/html # or path/to/artifact
