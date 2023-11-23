@@ -1,5 +1,5 @@
 name: Testes end to end cypress
-on: pull_request
+on: [push]
 jobs:
         
         chrome:
