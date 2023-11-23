@@ -84,7 +84,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
     })
 
     //Usando a função invoke para remover o target(elemento responsável por fazer o navegador abrir em uma nova aba)
-    //e validando a página no mesmo navegador! 
+    //e validando a página no mesmo navegador! Subindo o pipeline
     it.only("acessa a página da política de privacidade removendo o target e então clicando no link", function () {
 
 
